@@ -4,8 +4,18 @@ import "./globals.css";
 import { DESCRIPTION, KEYWORDS, NAME, SITE_URL, TITLE } from "@/lib/site";
 import { jsonLd, safeJson } from "@/lib/jsonld";
 
-const sans = Plus_Jakarta_Sans({ subsets: ["latin"], display: "swap", variable: "--font-sans" });
-const serif = Tinos({ subsets: ["latin"], weight: ["400", "700"], style: ["normal", "italic"], display: "swap", variable: "--font-serif" });
+const sans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
+});
+const serif = Tinos({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-serif",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -16,21 +26,49 @@ export const metadata: Metadata = {
   authors: [{ name: NAME, url: SITE_URL }],
   creator: NAME,
   alternates: { canonical: "/" },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
-  openGraph: {
-    type: "website", url: SITE_URL, siteName: `${NAME} Portfolio`, title: TITLE, description: DESCRIPTION, locale: "en_US",
-    images: [{ url: "/images/salma-hero.webp", width: 1200, height: 1600, alt: "Salma, beauty and lifestyle content creator" }],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION, images: ["/images/salma-hero.webp"] },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: `${NAME} Portfolio`,
+    title: TITLE,
+    description: DESCRIPTION,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
   category: "beauty",
 };
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#faf7f2" };
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#faf7f2",
+};
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable}`}>
       <body className="font-sans">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJson(jsonLd) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJson(jsonLd) }}
+        />
         {children}
       </body>
     </html>
