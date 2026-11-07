@@ -11,7 +11,7 @@ export type Testimonial = {
 // ⚠️ لازم تكون آراء حقيقية بموافقة أصحابها. طول ما المصفوفة فاضية القسم بيختفي من الموقع المنشور.
 export const TESTIMONIALS: Testimonial[] = [];
 
-export const BRANDS = ["Glossier", "La Mer", "Dyson"]; // ⚠️ راجعها مع العميلة: لازم تكون براندات اشتغلت معاها فعلًا
+export const BRANDS = ["Abib", "Dermactive", "Fiancee","Biorganic","Al Azabi","Loreal Paris","Garnier","Koton"];
 
 export const STATS = [
   { value: "50+", label: "Products Reviewed" },
