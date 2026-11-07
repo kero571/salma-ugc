@@ -17,7 +17,7 @@ export default function Page() {
         <About />
         <Services />
         <Reels />
-        <Testimonials />
+        {/* <Testimonials /> */}
       </main>
       <Contact />
     </>
